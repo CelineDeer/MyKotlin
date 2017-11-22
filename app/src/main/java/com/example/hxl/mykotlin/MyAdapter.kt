@@ -1,11 +1,13 @@
 package com.example.hxl.mykotlin
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.Toast
 import java.util.*
 
 /**
@@ -24,6 +26,13 @@ class MyAdapter(var mlist : ArrayList<String>, var context : Context) : BaseAdap
         }else{
             v = convertView!!
             holder = v.getTag() as MyViewHolder
+        }
+
+        /**
+         * listView的item点击事件
+         */
+        v.setOnClickListener {
+            Log.e("hxl","click:"+position)
         }
 
         holder.textView.text = mlist.get(position)
